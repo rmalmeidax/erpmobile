@@ -1,0 +1,12 @@
+package Entity;
+
+import Heranca.HCadastroBase;
+import jakarta.persistence.OneToMany;
+
+public class EclienteEntity  extends HCadastroBase{
+	
+	@OneToMany (mappedBy = "cadastro",cascade = ALL)
+	public List<>
+	
+
+}

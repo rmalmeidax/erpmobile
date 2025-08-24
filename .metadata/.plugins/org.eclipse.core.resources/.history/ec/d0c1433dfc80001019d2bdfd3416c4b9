@@ -1,0 +1,10 @@
+package Entity;
+
+import Heranca.HcadastroHeranca;
+
+@Entity
+public class EfornecedorEntity  extends HcadastroHeranca{
+	
+	@OnetoOne
+
+}

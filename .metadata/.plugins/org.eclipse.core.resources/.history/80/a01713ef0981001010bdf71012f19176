@@ -1,0 +1,36 @@
+package Entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Enum.EestadosBrEnum;
+import Heranca.HcadastroHeranca;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
+
+@Entity
+public class EclienteEntity extends HcadastroHeranca {
+
+	@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<EcadastroEntity> cadastro = new ArrayList<>();
+
+	public EclienteEntity(Integer id, String nome, String cpf, String cnpj, String endereco, Integer numero,
+			String bairro, String cidade, EestadosBrEnum estados, String cep, String email) {
+		super(id, nome, cpf, cnpj, endereco, numero, bairro, cidade, estados, cep, email);
+	}
+
+	public EclienteEntity() {
+		super();
+
+	}
+
+	public List<EcadastroEntity> getCadastro() {
+		return cadastro;
+	}
+
+	public void setCadastro(List<EcadastroEntity> cadastro) {
+		this.cadastro = cadastro;
+	}
+
+}

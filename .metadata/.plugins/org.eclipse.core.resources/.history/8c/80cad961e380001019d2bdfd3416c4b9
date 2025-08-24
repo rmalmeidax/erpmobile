@@ -1,0 +1,5 @@
+package com.rmsystem.version1000;
+
+public enum EestadosBrEnum {
+
+}

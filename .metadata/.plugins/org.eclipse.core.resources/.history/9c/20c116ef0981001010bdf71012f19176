@@ -1,0 +1,50 @@
+package Entity;
+
+import java.util.List;
+
+import Enum.EestadosBrEnum;
+import Heranca.HcadastroHeranca;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+@Entity
+public class EcadastroEntity extends HcadastroHeranca {
+
+	@ManyToOne
+	@JoinColumn(name = " cliente_id")
+	private EclienteEntity cliente;
+
+	@ManyToOne
+	@JoinColumn(name = " fornecedor_id")
+	private EfornecedorEntity fornecedor;
+
+	public EclienteEntity getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(EclienteEntity cliente) {
+		this.cliente = cliente;
+	}
+
+	public EfornecedorEntity getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(EfornecedorEntity fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
+	public EcadastroEntity(Integer id, String nome, String cpf, String cnpj, String endereco, Integer numero,
+			String bairro, String cidade, EestadosBrEnum estados, String cep, String email,
+			List<EcadastroEntity> cadastro, EclienteEntity cliente, EfornecedorEntity fornecedor) {
+		super(id, nome, cpf, cnpj, endereco, numero, bairro, cidade, estados, cep, email);
+		this.cliente = cliente;
+		this.fornecedor = fornecedor;
+	}
+
+	public EcadastroEntity() {
+		super();
+	}
+
+}

@@ -1,0 +1,36 @@
+package Enum;
+
+public enum EunidadeEnum {
+	
+	UN("Unidade"),
+    CX("Caixa"),
+    KG("Quilograma"),
+    G("Grama"),
+    MG("Miligramas"),
+    L("Litro"),
+    ML("Mililitro"),
+    M("Metro"),
+    CM("Centímetro"),
+    MM("Milímetro"),
+    M2("Metro Quadrado"),
+    M3("Metro Cúbico"),
+    PCT("Pacote"),
+    PAR("Par"),
+    DZ("Dúzia"),
+    TON("Tonelada");
+	
+	private final String descricaoString;
+
+	private EunidadeEnum(String descricaoString) {
+		this.descricaoString = descricaoString;
+	}
+	
+	
+	
+	
+	
+	
+	
+
+
+}

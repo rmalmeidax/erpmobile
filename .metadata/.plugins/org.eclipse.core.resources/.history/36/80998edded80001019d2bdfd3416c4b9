@@ -1,0 +1,14 @@
+package Entity;
+
+import java.util.List;
+
+
+import jakarta.persistence.OneToMany;
+
+public class EclienteEntity  extends EcadastroEntity{
+	
+	@OneToMany (mappedBy = "cadastro",cascade = ALL)
+	public List<EcadastroEntity> cadastro;
+	
+
+}

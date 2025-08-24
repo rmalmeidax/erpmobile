@@ -1,0 +1,19 @@
+package Entity;
+
+import Heranca.HcadastroHeranca;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+
+@Entity
+public class EcadastroEntity extends HcadastroHeranca {
+	
+	@ManyToMany
+	@JoinColumn(name =" cliente_id")
+	private EclienteEntity cliente;  
+
+
+
+	}
+
+

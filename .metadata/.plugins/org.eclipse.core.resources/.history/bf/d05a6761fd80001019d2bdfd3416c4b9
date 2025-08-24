@@ -1,0 +1,11 @@
+package Entity;
+
+import Heranca.HcadastroHeranca;
+import jakarta.persistence.Entity;
+
+@Entity
+public class EfornecedorEntity  extends HcadastroHeranca{
+	
+	
+
+}

@@ -1,0 +1,17 @@
+package Entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Heranca.HcadastroHeranca;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+
+@Entity
+public class EclienteEntity extends HcadastroHeranca {
+
+
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+	public List<EcadastroEntity> cadastro = new ArrayList<>();
+}

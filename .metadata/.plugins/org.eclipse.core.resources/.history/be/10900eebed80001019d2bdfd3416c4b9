@@ -1,0 +1,42 @@
+package Entity;
+
+import java.util.List;
+
+import Enum.EestadosBrEnum;
+import jakarta.persistence.OneToMany;
+
+public class EclienteEntity  extends EcadastroEntity{
+	
+	@OneToMany (mappedBy = "cadastro",cascade = ALL)
+	public List<EcadastroEntity> cadastro;
+
+	public List<EcadastroEntity> getCadastro() {
+		return cadastro;
+	}
+
+	public void setCadastro(List<EcadastroEntity> cadastro) {
+		this.cadastro = cadastro;
+	}
+
+	public EclienteEntity(Integer id, String nome, String cpf, String cnpj, String endereco, Integer numero,
+			String bairro, String cidade, EestadosBrEnum estados, String cep, String email,
+			List<EcadastroEntity> cadastro) {
+		super(id, nome, cpf, cnpj, endereco, numero, bairro, cidade, estados, cep, email);
+		this.cadastro = cadastro;
+	}
+
+	public EclienteEntity() {
+		super();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,25 @@
+package Entity;
+
+import java.util.List;
+
+import org.hibernate.dialect.function.InverseDistributionFunction;
+
+import Heranca.HherancaBase;
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+
+public class EcomprasEntity extends HherancaBase{
+	
+	
+		@ManyToMany
+		@JoinTable(name ="tb_comprasFornecedor",
+		joinColumns = @JoinColumn(name = "fornecedor_id"),
+		inverseJoinColumns = @JoinColumn (name = "produto_id")
+		
+				)
+			private  List<EfornecedorEntity> fornecedores;
+		}
+
+}

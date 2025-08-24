@@ -1,0 +1,43 @@
+package Entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Heranca.HherancaBase;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+
+/**
+ * 
+ */
+@Entity
+public class EcomprasEntity extends HherancaBase {
+
+	@ManyToMany
+	@JoinTable(name = "tb_compras_fornecedor", joinColumns = @JoinColumn(name = "compras_id"), 
+	inverseJoinColumns = @JoinColumn(name = "fornecedor_id")
+
+	)
+	private List<EfornecedorEntity> fornecedores = new ArrayList<>();
+
+	public List<EfornecedorEntity> getFornecedores() {
+		return fornecedores;
+	}
+
+	public void setFornecedores(List<EfornecedorEntity> fornecedores) {
+		this.fornecedores = fornecedores;
+	}
+
+	public EcomprasEntity(Integer id, Integer numeroProduto, Double quantidade, Double valorUnitario, Double valorTotal,
+			List<EprodutoEntity> produtos, List<EfornecedorEntity> fornecedores) {
+		super(id, numeroProduto, quantidade, valorUnitario, valorTotal, produtos);
+		this.fornecedores = fornecedores;
+	}
+
+	public EcomprasEntity() {
+			super();
+	}
+
+}
