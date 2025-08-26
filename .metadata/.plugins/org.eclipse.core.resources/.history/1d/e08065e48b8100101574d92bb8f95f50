@@ -1,0 +1,65 @@
+package Entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name="tb_estoque")
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode (of = "id")
+public class EestoqueEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	private Double quantidade;
+	private Double valorCompra;
+	
+	@Transient
+	private Double valorTotal;
+	
+	
+	@ManyToMany
+	@JoinTable (name = "tb_estoqueProduto",
+	joinColumns = @JoinColumn(name = "estoque_id"),
+	inverseJoinColumns ="produto_id")
+			)
+	private List <EprodutoEntity> produtos = new ArrayList<>();
+	
+	@ManyToMany
+	@JoinTable(name = "tb_estoqueCompra",
+	joinColumns = @JoinColumn(name = "estoque_id"),
+	inverseJoinColumns = "compra_id")
+		)
+	
+	private List<EcomprasEntity> compras = new ArrayList<>();
+	
+	@ManyToMany
+	@JoinTable(name = "tb_estoqueVenda",
+	joinColumns = @JoinColumn(name = "estoque_id"),
+	inverseJoinColumns = "venda_id")		
+		)
+	private List <EvendasEntity> vendas = new ArrayList<>();	
+	
+
+}

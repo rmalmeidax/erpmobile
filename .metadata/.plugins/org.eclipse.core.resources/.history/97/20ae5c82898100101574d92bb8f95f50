@@ -1,0 +1,43 @@
+package Entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import sun.font.DoubleByteEncoder;
+
+@Entity
+@Table(name="tb_estoque")
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode (of = "id")
+public class EestoqueEntity {
+	
+	
+	private Integer id;
+	
+	private Double quantidade;
+	private Double valorCompra;
+	
+	@Transient
+	private Double valorTotal;
+	
+	
+	
+	public Double valorTotal() {
+		
+		if ()
+	}		
+	}
+	
+	
+	
+
+}

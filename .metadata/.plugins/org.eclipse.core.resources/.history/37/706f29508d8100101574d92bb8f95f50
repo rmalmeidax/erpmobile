@@ -1,0 +1,65 @@
+package Entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Heranca.HherancaBase;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+
+@Entity
+public class EvendasEntity extends HherancaBase {
+
+	@ManyToMany
+	@JoinTable(name = "tb_vendas_cliente", joinColumns = @JoinColumn(name = "vendas_id"), inverseJoinColumns = @JoinColumn(name = "cliente_id")
+
+	)
+	private List<EclienteEntity> clientes = new ArrayList<>();
+
+	@ManyToMany (mappedBy = "vendas")
+	
+	public List <EestoqueEntity> estoque = new ArrayList<>();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public List<EclienteEntity> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<EclienteEntity> clientes) {
+		this.clientes = clientes;
+	}
+
+	public EvendasEntity() {
+		super();
+	}
+
+	public EvendasEntity(Integer id, Integer numeroProduto, Double quantidade, Double valorUnitario, Double valorTotal,
+			List<EprodutoEntity> produtos, List<EclienteEntity> clientes) {
+		super(id, numeroProduto, quantidade, valorUnitario, valorTotal, produtos);
+		this.clientes = clientes;
+	}
+	
+	
+	
+
+}
